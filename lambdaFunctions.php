@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Function and Filter</title>
+    <title>Lambda Function</title>
   </head>
   <body>
     <h1>Recommended Anime</h1>
@@ -62,23 +62,24 @@
 
 
       //Function to filter anime by author
-      function filterByAuthor($anime, $author) {
-        $filteredAnime = [];
+      // function filter($data, $key, $value) {
+      //   $filteredData = [];
 
-        foreach ($anime as $list) {
-          if ($list['author'] === $author) {
-            $filteredAnime[] = $list;
-          }
-        }
-        return $filteredAnime;
-      }
+      //   foreach ($data as $list) {
+      //     if ($list[$key] === $value) {
+      //       $filteredData[] = $list;
+      //     }
+      //   }
+      //   return $filteredData;
+      // }
 
-
-
+      $filteredAnime = array_filter($anime, function($list) {
+        return $list['title'] === 'Demon Slayer';
+      });
     ?>
     <ul>
       <!-- Filtered list of anime-->
-      <?php foreach (filterByAuthor($anime, "Sui Ishida") as $list) : ?>
+      <?php foreach ($filteredAnime as $list) : ?>
         <li>
           <?= $list['title'] ?>  
           by <?= $list['author'] ?>
