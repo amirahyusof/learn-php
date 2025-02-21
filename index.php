@@ -8,7 +8,7 @@
 <body>
   <h1>
     <?php
-      include 'lamdaFunctions.php';
+      include 'separateLogic.php';
     ?>
   </h1>
 </body>
