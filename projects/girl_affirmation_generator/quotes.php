@@ -1,87 +1,129 @@
 <?php
-$anime_quotes = [
-  [
-      "quote" => "Power comes in response to a need, not a desire.",
-      "character" => "Goku",
-      "anime" => "Dragon Ball Z",
-      "image" => ""
-  ],
-  [
-      "quote" => "Fear is not evil. It tells you what your weaknesses are.",
-      "character" => "Gildarts Clive",
-      "anime" => "Fairy Tail",
-      "image" => "data:image/jpeg;base64,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"
-  ],
-  [
-      "quote" => "A lesson without pain is meaningless.",
-      "character" => "Edward Elric",
-      "anime" => "Fullmetal Alchemist: Brotherhood",
-      "image" => ""
-  ],
-  [
-      "quote" => "It's not the face that makes someone a monster, it's the choices they make with their lives.",
-      "character" => "Naruto Uzumaki",
-      "anime" => "Naruto Shippuden",
-      "image" => ""
-  ],
-  [
-        "quote" => "Inherited will, the swelling of the changing times, and the dreams of people. These are things that cannot be stopped.",
-        "character" => "Gol D. Roger",
-        "anime" => "One Piece",
-        "image" => ""
-  ],
-  [
-      "quote" => "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
-      "character" => "Naruto Uzumaki",
-      "anime" => "Naruto Shippuden",
-      "image" => ""
-  ],
-  [
-      "quote" => "It's not the face that makes someone a monster, it's the choices they make with their lives.",
-      "character" => "Naruto Uzumaki",
-      "anime" => "Naruto Shippuden",
-      "image" => ""
-  ],
-  [
-    "quote" => "I don't want to conquer anything. I just think the guy with the most freedom in this whole ocean... is the Pirate King!",
-    "character" => "Monkey D. Luffy",
-    "anime" => "One Piece",
+$girl_quotes = [
+[
+    "quote" => "I am confident and capable in all that I do.",
+    "aspect" => "life",
     "image" => ""
-  ],
-  [
-      "quote" => "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
-      "character" => "Naruto Uzumaki",
-      "anime" => "Naruto Shippuden",
-      "image" => ""
-  ],
-  [
-        "quote" => "No matter how many people you may lose, you have no choice but to go on living.",
-        "character" => "Tanjiro Kamado",
-        "anime" => "Demon Slayer",
-        "image" => "https://www.google.com/imgres?q=tanjiro%20kamado&imgurl=https%3A%2F%2Flookaside.instagram.com%2Fseo%2Fgoogle_widget%2Fcrawler%2F%3Fmedia_id%3D3103878552911458690&imgrefurl=https%3A%2F%2Fwww.instagram.com%2Faprampar%2Fp%2FCsTMRqdPLAP%2F&docid=jZtPDO_EKRAFQM&tbnid=Y5RkwkUB9Jq3zM&vet=12ahUKEwiP-Ynz7NOLAxUP-jgGHXIiJ2oQM3oECDIQAA..i&w=393&h=442&hcb=2&ved=2ahUKEwiP-Ynz7NOLAxUP-jgGHXIiJ2oQM3oECDIQAA"
 ],
-    [
-        "quote" => "If you can't do something, then don't. Focus on what you can do.",
-        "character" => "Shinobu Kocho",
-        "anime" => "Demon Slayer",
-        "image" => ""
-    ],
-    [
-        "quote" => "I alone enough to defeat them.",
-        "character" => "Sung Jin-Woo",
-        "anime" => "Solo Leveling",
-        "image" => "data:image/jpeg;base64,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"
-    ],
-    [
-        "quote" => "I will become the strongest hunter in the world.",
-        "character" => "Sung Jin-Woo",
-        "anime" => "Solo Leveling",
-        "image" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaG-te0Gm7DdHIS-2ko1PyymK-qr9-DNYopw&s"
-    ]
+[
+    "quote" => "I am surrounded by love and everything is fine.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "My family is my strength and my support.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am successful in my career and my work brings me joy.",
+    "aspect" => "career",
+    "image" => ""
+],
+[
+    "quote" => "I am worthy of all the good things that happen in my life.",
+    "aspect" => "life",
+    "image" => ""
+],
+[
+    "quote" => "I attract love and romance into my life with ease.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "I cherish the time I spend with my family.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am dedicated and focused on achieving my career goals.",
+    "aspect" => "career",
+    "image" => ""
+],
+[
+    "quote" => "I am grateful for the love and support I receive from my family.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am open to new opportunities and experiences in my career.",
+    "aspect" => "career",
+    "image" => ""
+],
+[
+    "quote" => "I am deserving of a loving and fulfilling relationship.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "I am proud of all my accomplishments and successes.",
+    "aspect" => "life",
+    "image" => ""
+], 
+[
+    "quote" => "I am in control of my own happiness.",
+    "aspect" => "life",
+    "image" => ""
+],
+[
+    "quote" => "I am worthy of love and respect.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "My family brings me joy and comfort.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am constantly growing and developing in my career.",
+    "aspect" => "career",
+    "image" => ""
+],
+[
+    "quote" => "I am at peace with who I am as a person.",
+    "aspect" => "life",
+    "image" => ""
+],
+[
+    "quote" => "I attract positive and loving relationships.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "I am grateful for the strong bond I have with my family.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am passionate about my career and it shows in my work.",
+    "aspect" => "career",
+    "image" => ""
+],
+[
+    "quote" => "I am surrounded by positive and supportive people.",
+    "aspect" => "life",
+    "image" => ""
+],
+[
+    "quote" => "I am open to receiving love in my life.",
+    "aspect" => "love",
+    "image" => ""
+],
+[
+    "quote" => "I am thankful for the love and support of my family.",
+    "aspect" => "family",
+    "image" => ""
+],
+[
+    "quote" => "I am confident in my abilities and skills in my career.",
+    "aspect" => "career",
+    "image" => ""
+]
 ];
 
 function getRandomQuote() {
-    global $anime_quotes;
-    return $anime_quotes[array_rand($anime_quotes)];
+    global $girl_quotes;
+    return $girl_quotes[array_rand($girl_quotes)];
 }
 

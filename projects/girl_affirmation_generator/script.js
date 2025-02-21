@@ -3,7 +3,7 @@ function fetchNewQuote() {
     .then((response) => response.json())
     .then((data) => {
       document.getElementById("quote").innerHTML = `"${data.quote}"`;
-      document.getElementById("character").innerHTML = `-${data.character} (${data.anime})`;
+      document.getElementById("aspect").innerHTML = `(${data.aspect})`;
       document.getElementById("image").innerHTML = data.image;
     });
 }
