@@ -13,7 +13,7 @@ $pdo->prepare("select * from user");
 $statement->execute();
 $user = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($user);
+dd($user);
 
 
 // class Post {
