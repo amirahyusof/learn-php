@@ -3,18 +3,15 @@
 require 'function.php';
 // require 'router.php';
 
-//connect to our MySQL database
-$dsn = "mysql:host=localhost; port=3306; dbname=demo;charset=utf8mb4";
-$pdo = new PDO($dsn, 'root', '');
+//connect to our MySQL database and execute a query
+require 'Database.php';
 
-$statement = $pdo->prepare("select * from post");
-$statement->execute();
+$db = new Database();
+$post = $db->query("SELECT * FROM post");
 
-$post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($post as $posts){
   echo "<li>". $posts['title'] . "</li>";
-  echo "<li>". $posts['user_name'] . "</li>";
 }
 
 
