@@ -1,33 +1,31 @@
 <?php
 
 require 'function.php';
-
 // require 'router.php';
 
-//connect to database
-$dsn = 'mysql:host=localhost; port=3306; dbname=post;charset=utf8mb4';
-new PDO($dsn);
+//connect to our MySQL database
+$dsn = "mysql:host=localhost; port=3306; dbname=demo;charset=utf8mb4";
 $pdo = new PDO($dsn, 'root', '');
 
-$pdo->prepare("select * from user");
+$statement = $pdo->prepare("select * from post");
 $statement->execute();
-$user = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-dd($user);
+$post = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($post as $posts){
+  echo "<li>". $posts['title'] . "</li>";
+  echo "<li>". $posts['user_name'] . "</li>";
+}
 
 
-// class Post {
-//     public $id;
-//     public $title;
-//     public $content;
-//     public $author;
-//     public $date;
 
-//     public function_contruct($id, $title, $content, $date) {
-//         $this->id = $id;
-//         $this->title = $title;
-//         $this->content = $content;
-//         $this->date = $date;
-//     }
+
+
+
+//testing data connection
+// try {
+//     $pdo = new PDO("mysql:host=127.0.0.1;port=3306;dbname=post;charset=utf8mb4", "root", "");
+//     echo "PDO MySQL is working!";
+// } catch (PDOException $e) {
+//     echo "Connection failed: " . $e->getMessage();
 // }
-
